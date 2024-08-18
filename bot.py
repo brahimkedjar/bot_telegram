@@ -3,9 +3,9 @@ from flask import Flask, request
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from telegram.ext import Application, CommandHandler, CallbackContext
 import logging
-
 API_TOKEN = '7226265761:AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'  # Ensure you set this in Render's environment variables
 WEBHOOK_URL = 'https://bot-telegram-vz95.onrender.com/'  # Ensure this matches your Render URL
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 app = Flask(__name__)
@@ -32,6 +32,7 @@ def webhook():
 
 def run_set_webhook():
     loop = asyncio.get_event_loop()
+    print(f'Setting webhook to: {WEBHOOK_URL}')  # Debug print
     loop.run_until_complete(application.bot.set_webhook(url=WEBHOOK_URL))
 
 if __name__ == '__main__':
