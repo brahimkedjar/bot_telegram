@@ -1,12 +1,12 @@
 import asyncio
 from flask import Flask, request
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
-from telegram.ext import Application, CommandHandler, CallbackContext, CallbackQueryHandler
+from telegram.ext import Application, CommandHandler, CallbackContext
 import logging
 
 # Replace 'YOUR_API_TOKEN' with your actual API token from BotFather
 API_TOKEN = '7226265761:AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'
-WEBHOOK_URL = 'https://bot-telegram-vz95.onrender.com'  # Update with your Render app URL
+WEBHOOK_URL = 'https://bot-telegram-vz95.onrender.com/'  # Ensure this is the base URL of your deployed Flask app
 
 # Initialize logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
