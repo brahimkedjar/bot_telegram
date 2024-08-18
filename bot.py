@@ -4,18 +4,15 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppI
 from telegram.ext import Application, CommandHandler, CallbackContext
 import logging
 
-# Replace 'YOUR_API_TOKEN' with your actual API token from BotFather
-API_TOKEN = '7226265761:AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'
-WEBHOOK_URL = 'https://bot-telegram-vz95.onrender.com/'  # Ensure this is the base URL of your deployed Flask app
+API_TOKEN = 'AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'  # Ensure you set this in Render's environment variables
+WEBHOOK_URL = 'https://bot-telegram-vz95.onrender.com/'  # Ensure this matches your Render URL
 
-# Initialize logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 app = Flask(__name__)
 application = Application.builder().token(API_TOKEN).build()
 
 async def start(update: Update, context: CallbackContext) -> None:
-    # Create a button that launches the React.js web app
     web_app_url = 'https://react-bot-tlgrm.vercel.app/'
     keyboard = [
         [InlineKeyboardButton("Open Game UI", web_app=WebAppInfo(url=web_app_url))]
