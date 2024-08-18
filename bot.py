@@ -5,7 +5,7 @@ import logging
 
 # Replace 'YOUR_API_TOKEN' with your actual API token from BotFather
 API_TOKEN = '7226265761:AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'
-WEBHOOK_URL = 'https://react-bot-tlgrm.vercel.app/'  # Update with your Render app URL
+WEBHOOK_URL = 'https://bot-telegram-vz95.onrender.com'  # Update with your Render app URL
 
 # Initialize logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
