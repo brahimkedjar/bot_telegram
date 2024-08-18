@@ -1,3 +1,4 @@
+import asyncio
 from flask import Flask, request
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from telegram.ext import Application, CommandHandler, CallbackContext, CallbackQueryHandler
@@ -31,9 +32,10 @@ def webhook():
     application.process_update(update)
     return 'OK'
 
-def set_webhook():
-    application.bot.set_webhook(url=WEBHOOK_URL + API_TOKEN)
+def run_set_webhook():
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(application.bot.set_webhook(url=WEBHOOK_URL + API_TOKEN))
 
 if __name__ == '__main__':
-    set_webhook()
+    run_set_webhook()
     app.run(host='0.0.0.0', port=8080)
