@@ -13,6 +13,7 @@ application = Application.builder().token(API_TOKEN).build()
 
 async def start(update: Update, context: CallbackContext) -> None:
     # Create a button that launches the React.js web app
+    from telegram import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
     web_app_url = 'https://react-bot-tlgrm.vercel.app/'
     keyboard = [
         [InlineKeyboardButton("Open Game UI", web_app=WebAppInfo(url=web_app_url))]
