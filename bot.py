@@ -4,7 +4,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppI
 from telegram.ext import Application, CommandHandler, CallbackContext
 import logging
 
-API_TOKEN = 'AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'  # Ensure you set this in Render's environment variables
+API_TOKEN = '7226265761:AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'  # Ensure you set this in Render's environment variables
 WEBHOOK_URL = 'https://bot-telegram-vz95.onrender.com/'  # Ensure this matches your Render URL
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
