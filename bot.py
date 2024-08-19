@@ -1,8 +1,6 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext
 import logging
-from flask import Flask
-import threading
 
 # Replace 'YOUR_API_TOKEN' with your actual API token from BotFather
 API_TOKEN = '7226265761:AAFT3jZ2a6sGRHZekSC3g5uBp5GZHX6a8UU'
@@ -26,27 +24,6 @@ async def start(update: Update, context: CallbackContext) -> None:
 # Add a handler for the /start command
 application.add_handler(CommandHandler("start", start))
 
-# Create a Flask app for health checks
-app = Flask(__name__)
-
-@app.route('/')
-def health_check():
-    return "OK", 200
-
-def run_bot():
+if __name__ == '__main__':
     # Start polling for updates
     application.run_polling()
-
-def run_health_check_server():
-    app.run(host='0.0.0.0', port=8000)
-
-if __name__ == '__main__':
-    # Start the bot and health check server in separate threads
-    bot_thread = threading.Thread(target=run_bot)
-    server_thread = threading.Thread(target=run_health_check_server)
-
-    bot_thread.start()
-    server_thread.start()
-
-    bot_thread.join()
-    server_thread.join()
